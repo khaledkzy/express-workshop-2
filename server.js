@@ -21,11 +21,11 @@ app.get('/', function (req, res) {
         // we call .toString() to turn the file buffer to a String
         const fileData = file.toString();
         // we use JSON.parse to get an object out the String
-        const postsJson = JSON.parse(fileData).reverse();
+        const posts = JSON.parse(fileData);
         // send the json to the Template to render
         res.render('index', {
           title: 'Khaled Profile', // insert your name instead
-          posts: postsJson
+          posts: posts
         });
     };
     fs.readFile(filePath, callbackFunction);
